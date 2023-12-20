@@ -57,8 +57,8 @@ function EditPost() {
               onClick={async () => {
                 const washingtonRef = doc(db, "data", uid);
                 await updateDoc(washingtonRef, {
-                  title: editTitle? editTitle:findDataByID.title,
-                  description: editDesc? editTitle:findDataByID.description,
+                  title: editTitle?editTitle:findDataByID.title,
+                  description: editDesc?editDesc:findDataByID.description,
                 });
                 alert("data updated");
                 navigation("/")
