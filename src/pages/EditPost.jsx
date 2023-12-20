@@ -35,8 +35,8 @@ function EditPost() {
       {findDataByID && (
         <div>
           <h1 className="text-3xl font-semibold text-center">Edit Post</h1>
-          <div className="flex flex-col gap-2 w-[50vw] bg-gray-200 p-[10%] mt-5">
-            <span>Title</span>
+          <div className="flex flex-col gap-2 sm:w-[50vw] w-[95vw] bg-gray-200 sm:p-[10%] p-[2%] mt-5">
+            <span className="mt-4">Title</span>
             <input
               className="flex-1 inputt"
               defaultValue={findDataByID.title}
@@ -63,7 +63,7 @@ function EditPost() {
                 alert("data updated");
                 navigation("/")
               }}
-              className="bg-pink-600 py-3 text-white mt-3 hover:bg-blue-600 transition"
+              className="bg-pink-600 py-3 mb-3 text-white mt-4 hover:bg-blue-600 transition"
             >
               Update Post
             </button>

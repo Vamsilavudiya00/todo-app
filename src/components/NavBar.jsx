@@ -51,22 +51,22 @@ const signOutGoogle = () =>{
 }
 
   return (
-    <header className="flex flex-row justify-between items-center w-[80%] bg-white mx-[10%] py-2 border-b px-1  fixed z-10 left-0 top-0">
-      <a href="/" className="flex flex-row gap-2 items-center">
-        <img className="w-12 h-12" src={Logo} alt="logo" />
-        <h1 className="text-black text-xl font-semibold">SaveData</h1>
+    <header className="flex flex-row justify-between items-center sm:w-[80%] w-[98%] bg-white mx-[1%] sm:mx-[10%] py-2 border-b px-1  fixed z-10 left-0 top-0">
+      <a href="/" className="flex flex-row sm:gap-2 gap-1 items-center">
+        <img className="sm:w-12 w-6 h-6 sm:h-12" src={Logo} alt="logo" />
+        <h1 className="text-black sm:text-xl text-sm font-semibold">SaveData</h1>
       </a>
-      <nav className="flex flex-row items-center gap-3">
+      <nav className="flex flex-row items-center gap-2 sm:gap-3">
         {login ? (
-          <div className="flex flex-row items-center gap-3">
-            <Link to="/create-post" className="px-3 py-2 bg-pink-600 text-white  rounded-xl transition">
+          <div className="flex flex-row items-center gap-1 sm:gap-3">
+            <Link to="/create-post" className="sm:px-3 sm:py-2 py-2 px-3 text-xs sm:text-sm bg-pink-600 text-white  sm:rounded-xl rounded-lg transition">
               Create
             </Link>
-            <button onClick={signOutGoogle} className="px-3 py-2 bg-blue-600 text-white  rounded-xl transition">Logout</button>
+            <button onClick={signOutGoogle} className="sm:px-3 sm:py-2 py-2 px-3 text-xs sm:text-sm bg-blue-600 text-white  sm:rounded-xl rounded-lg transition">Logout</button>
           </div>
         ) : (
           <>
-            <button onClick={SignInGoogle} className="px-3 py-2 bg-blue-600 text-white transition rounded-xl">
+            <button onClick={SignInGoogle} className="sm:px-3 sm:py-2 py-2 px-3 text-xs sm:text-sm bg-blue-600 text-white  sm:rounded-xl rounded-lg transition">
               Login
             </button>
           </>
