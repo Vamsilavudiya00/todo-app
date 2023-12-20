@@ -52,10 +52,10 @@ const signOutGoogle = () =>{
 
   return (
     <header className="flex flex-row justify-between items-center w-[80%] bg-white mx-[10%] py-2 border-b px-1  fixed z-10 left-0 top-0">
-      <Link to="/" className="flex flex-row gap-2 items-center">
+      <a href="/" className="flex flex-row gap-2 items-center">
         <img className="w-12 h-12" src={Logo} alt="logo" />
         <h1 className="text-black text-xl font-semibold">SaveData</h1>
-      </Link>
+      </a>
       <nav className="flex flex-row items-center gap-3">
         {login ? (
           <div className="flex flex-row items-center gap-3">

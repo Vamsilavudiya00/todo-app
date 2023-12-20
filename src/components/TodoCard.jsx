@@ -20,7 +20,7 @@ function TodoCard(props) {
         </span>
         {username == props.user ? (
           <div className="flex flex-row gap-1 items-center justify-center">
-            <Link to="/edit-post">
+            <Link to={`/${props.id}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="fill-gray-800"

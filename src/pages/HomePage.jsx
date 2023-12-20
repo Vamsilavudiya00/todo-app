@@ -26,9 +26,7 @@ function HomePage() {
   return (
     <div className="w-full px-[12%] flex flex-col items-center pt-16">
       {getData.map((data, index) => <TodoCard key={index} title={data.title} id={data.id} desc={data.description} user={data.user} />)}
-      <button className="bg-pink-600 text-white px-6 py-2 rounded-xl w-fit my-4">
-        LoadMore
-      </button>
+      {getData.length > 5? <><button className="bg-pink-600 text-white py-2 px-6 my-6 rounded-xl">Load More</button></>:<></>}
     </div>
   );
 }

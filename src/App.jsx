@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />}/>
         <Route path='/create-post' element={<CreateTodoPage />}/>
-        <Route path='/edit-post' element={<EditPost />}/>
+        <Route path='/:uid' element={<EditPost />}/>
       </Routes>
       {/* <Footer /> */}
     </>
