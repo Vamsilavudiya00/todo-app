@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import TodoCard from "../components/TodoCard";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseconfig";
@@ -27,12 +27,14 @@ function HomePage() {
     getdataFunction();
   }, []);
   console.log(getData)
+
+  const memoizedData = useMemo(() => getData, [getData]);
   
 
 
   return (
     <div className="w-full sm:px-[12%] px-2 flex flex-col items-center pt-16">
-      {getData
+      {memoizedData
         .slice(
           0,
           getData.length < clickTime * 5 ? getData.length : clickTime * 5
