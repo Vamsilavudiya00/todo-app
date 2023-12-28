@@ -29,12 +29,18 @@ function HomePage() {
   console.log(getData)
 
   const memoizedData = useMemo(() => getData, [getData]);
+  const sortByDate = (a, b) => a.date - b.date;
+
+// Sort the array by date
+memoizedData.sort(sortByDate);
+
+const reversedmemoData = memoizedData.reverse();
   
 
 
   return (
     <div className="w-full sm:px-[12%] px-2 flex flex-col items-center pt-16">
-      {memoizedData
+      {reversedmemoData
         .slice(
           0,
           getData.length < clickTime * 5 ? getData.length : clickTime * 5
