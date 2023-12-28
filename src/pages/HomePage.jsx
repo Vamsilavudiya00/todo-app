@@ -53,6 +53,7 @@ const reversedmemoData = memoizedData.reverse();
             desc={data.description}
             user={data.user}
             date = {data.date.toLocaleDateString()}
+            time = {data.date.toLocaleTimeString()}
           />
         ))}
       {getData.length > 5 ? (

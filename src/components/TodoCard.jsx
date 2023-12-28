@@ -19,7 +19,7 @@ function TodoCard(props) {
         <span className="bg-gray-300 px-3 py-1 rounded-lg w-fit">
           {props.user}
         </span>
-        <span>Date : {props.date}</span>
+        <span className="text-sm">Date & Time : {props.date} - {props.time}</span>
         </div>
         {username == props.user ? (
           <div className="flex flex-row gap-1 items-center justify-center">
