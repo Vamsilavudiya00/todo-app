@@ -18,55 +18,66 @@ function HomePage() {
             title: doc.data().title,
             description: doc.data().description,
             user: doc.data().user,
-            date: new Date((doc.data().date).seconds * 1000 + Math.floor((doc.data().date).nanoseconds / 1e6)),
+            date: new Date(
+              doc.data().date.seconds * 1000 +
+                Math.floor(doc.data().date.nanoseconds / 1e6)
+            ),
           },
         ]);
       });
     };
-    
+
     getdataFunction();
   }, []);
-  console.log(getData)
+  console.log(getData);
 
   const memoizedData = useMemo(() => getData, [getData]);
   const sortByDate = (a, b) => a.date - b.date;
 
-// Sort the array by date
-memoizedData.sort(sortByDate);
+  // Sort the array by date
+  memoizedData.sort(sortByDate);
 
-const reversedmemoData = memoizedData.reverse();
-  
-
+  const reversedmemoData = memoizedData.reverse();
 
   return (
     <div className="w-full sm:px-[12%] px-2 flex flex-col items-center pt-16">
-      {reversedmemoData
-        .slice(
-          0,
-          getData.length < clickTime * 5 ? getData.length : clickTime * 5
-        )
-        .map((data, index) => (
-          <TodoCard
-            key={index}
-            title={data.title}
-            id={data.id}
-            desc={data.description}
-            user={data.user}
-            date = {data.date.toLocaleDateString()}
-            time = {data.date.toLocaleTimeString()}
-          />
-        ))}
-      {getData.length > 5 ? (
+      {reversedmemoData.length > 1 ? (
         <>
-          <button
-            onClick={() => setClickTime(clickTime + 1)}
-            className="bg-pink-600 text-white py-2 px-6 my-6 rounded-xl"
-          >
-            Load More
-          </button>
+          {reversedmemoData
+            .slice(
+              0,
+              reversedmemoData.length < clickTime * 5
+                ? reversedmemoData.length
+                : clickTime * 5
+            )
+            .map((data, index) => (
+              <TodoCard
+                key={index}
+                title={data.title}
+                id={data.id}
+                desc={data.description}
+                user={data.user}
+                date={data.date.toLocaleDateString()}
+                time={data.date.toLocaleTimeString()}
+              />
+            ))}
+          {reversedmemoData.length > 5 ? (
+            <>
+              <button
+                onClick={() => setClickTime(clickTime + 1)}
+                className="bg-pink-600 text-white py-2 px-6 my-6 rounded-xl"
+              >
+                Load More
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
         </>
       ) : (
-        <></>
+        <>
+          <p className="py-3">Loading .....</p>
+        </>
       )}
     </div>
   );
