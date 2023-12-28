@@ -65,7 +65,7 @@ function HomePage() {
             <>
               <button
                 onClick={() => setClickTime(clickTime + 1)}
-                className="bg-pink-600 text-white py-2 px-6 my-6 rounded-xl"
+                className="bg-pink-600 text-white py-2 px-6 mt-6 rounded-xl"
               >
                 Load More
               </button>
@@ -75,9 +75,9 @@ function HomePage() {
           )}
         </>
       ) : (
-        <>
-          <p className="py-3">Loading .....</p>
-        </>
+        <div className="w-screen h-screen flex justify-center">
+          <p className="pt-4">Loading .....</p>
+        </div>
       )}
     </div>
   );
