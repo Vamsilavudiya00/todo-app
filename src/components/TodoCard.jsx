@@ -15,9 +15,12 @@ function TodoCard(props) {
       <h1 className="text-xl font-semibold">{props.title}</h1>
       <p>{props.desc}</p>
       <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row gap-6 items-center">
         <span className="bg-gray-300 px-3 py-1 rounded-lg w-fit">
           {props.user}
         </span>
+        <span>Date : {props.date}</span>
+        </div>
         {username == props.user ? (
           <div className="flex flex-row gap-1 items-center justify-center">
             <Link to={`/${props.id}`}>
@@ -33,9 +36,9 @@ function TodoCard(props) {
             </Link>
             <button
               onClick={async () => {
-                await deleteDoc(doc(db, "data", props.id));
-                alert("data deleted");
-                window.location.reload();
+                  await deleteDoc(doc(db, "data", props.id));
+                  alert("data deleted");
+                  window.location.reload();
               }}
               className="px-6 py-2 text-black bg-red-5"
             >

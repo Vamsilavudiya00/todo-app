@@ -22,7 +22,8 @@ function CreateTodoPage() {
           title: titleinput,
           description: DescInput,
           user: userInput,
-        });
+          date: new Date(),
+         });
       
         console.log("Document written with ID: ", docRef.id);
         alert("data sent Successfully to firebase")
@@ -36,7 +37,7 @@ function CreateTodoPage() {
   return (
     <div className='flex items-center justify-center mt-20'>
       <div>
-        <h1 className='text-3xl font-semibold text-center'>Create Post</h1>
+        <h1 className='text-3xl font-semibold text-center '>Create Post</h1>
         <div className='flex flex-col gap-2 w-[95vw] sm:w-[50vw] bg-gray-200 p-[2%] sm:p-[10%] mt-5'>
           <span className='mt-4'>Title</span>
           <input className='flex-1 inputt' onChange={e => setTitleInput(e.target.value)} type="text" placeholder='Todo Title' />

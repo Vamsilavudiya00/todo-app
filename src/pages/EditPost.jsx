@@ -21,6 +21,7 @@ function EditPost() {
             title: doc.data().title,
             description: doc.data().description,
             user: doc.data().user,
+
           },
         ]);
       });
@@ -59,6 +60,7 @@ function EditPost() {
                 await updateDoc(washingtonRef, {
                   title: editTitle?editTitle:findDataByID.title,
                   description: editDesc?editDesc:findDataByID.description,
+                  date: new Date(),
                 });
                 alert("data updated");
                 navigation("/")
