@@ -26,12 +26,12 @@ function CreateTodoPage() {
          });
       
         console.log("Document written with ID: ", docRef.id);
-        alert("data sent Successfully to firebase")
+        alert("Post created succesfully")
         navigation("/");
 
       } catch (e) {
         console.error("Error adding document: ", e);
-        alert("something wrong data not send!")
+        alert("something wrong Post not created!")
       }
     }
   return (

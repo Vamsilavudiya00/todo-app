@@ -29,6 +29,17 @@ function EditPost() {
     getdataFunction();
   }, []);
 
+  const clickFunction = async() =>{
+    const washingtonRef = doc(db, "data", uid);
+    await updateDoc(washingtonRef, {
+      title: editTitle?editTitle:findDataByID.title,
+      description: editDesc?editDesc:findDataByID.description,
+      date: new Date(),
+    });
+    alert("Post updated");
+    navigation("/")
+  }
+
   const findDataByID = getData.find((e) => e.id === uid);
 
   return (
@@ -55,16 +66,7 @@ function EditPost() {
               rows="10"
             ></textarea>
             <button
-              onClick={async () => {
-                const washingtonRef = doc(db, "data", uid);
-                await updateDoc(washingtonRef, {
-                  title: editTitle?editTitle:findDataByID.title,
-                  description: editDesc?editDesc:findDataByID.description,
-                  date: new Date(),
-                });
-                alert("data updated");
-                navigation("/")
-              }}
+              onClick={() => clickFunction() }
               className="bg-pink-600 py-3 mb-3 text-white mt-4 hover:bg-blue-600 transition"
             >
               Update Post

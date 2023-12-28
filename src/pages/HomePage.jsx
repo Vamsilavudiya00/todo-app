@@ -40,7 +40,7 @@ function HomePage() {
   const reversedmemoData = memoizedData.reverse();
 
   return (
-    <div className="w-full sm:px-[12%] px-2 flex flex-col items-center pt-16">
+    <div className="w-full sm:px-[12%] px-2 flex flex-col items-center sm:pt-16 pt-10">
       {reversedmemoData.length > 1 ? (
         <>
           {reversedmemoData
