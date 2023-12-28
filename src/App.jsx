@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import NavBar from './components/NavBar'
 import CreateTodoPage from './pages/CreateTodoPage'
 import EditPost from './pages/EditPost'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
         <Route path='/create-post' element={<CreateTodoPage />}/>
         <Route path='/:uid' element={<EditPost />}/>
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
