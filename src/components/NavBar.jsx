@@ -10,7 +10,6 @@ function NavBar() {
   const provider = new GoogleAuthProvider();
 
   useEffect(() =>{
-    const [userName,setUserName] = useState("");
     const localData = localStorage.getItem("user");
     if (localData) {
       setLogin(true);
@@ -28,7 +27,6 @@ const SignInGoogle = () =>{
     const user = result.user.displayName;
     localStorage.setItem("user", user);
     setLogin(true)
-    setUserName(user);
     window.location.reload();
   }).catch((error) => {
     const errorCode = error.code;
@@ -46,7 +44,6 @@ const signOutGoogle = () =>{
     localStorage.removeItem("user");
     window.location.reload();
     setLogin(false)
-    setUserName("");
     // Sign-out successful.
   }).catch((error) => {
     // An error happened.
@@ -66,7 +63,6 @@ const signOutGoogle = () =>{
               Create
             </Link>
             <button onClick={signOutGoogle} className="sm:px-3 sm:py-2 py-2 px-3 text-xs sm:text-sm bg-blue-600 text-white  sm:rounded-xl rounded-lg transition">Logout</button>
-            {userName.length > 1 && <button>{userName[0]}</button>}
           </div>
         ) : (
           <>
